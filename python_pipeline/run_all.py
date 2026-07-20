@@ -165,10 +165,10 @@ def stage_04_subsample(dl):
         datasets["energy"] = ("EU27.energy", 0.95)
     for ds, (key, tau_show) in datasets.items():
         d = dl[key]
-        yr = pd.DatetimeIndex(d["Time"]).year
+        yr = np.asarray(pd.DatetimeIndex(d["Time"]).year)
         masks = {"full": np.ones(len(d), bool),
-                 "pre2020": (yr <= 2019).to_numpy(),
-                 "ex2020": (yr != 2020).to_numpy()}
+                 "pre2020": yr <= 2019,
+                 "ex2020": yr != 2020}
         for var, label in SPECS[:3]:
             if var not in d.columns:
                 continue
