@@ -1,0 +1,20 @@
+# generated outputs and caches
+**/output/
+**/data/
+**/*.pdf
+!docs/**/*.pdf
+
+# python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# R
+.Rhistory
+.RData
+.Rproj.user/
+
+# OS / editor
+.DS_Store
+Thumbs.db
